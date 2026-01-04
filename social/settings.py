@@ -27,7 +27,7 @@ DEBUG = True #os.getenv("DJANGO_DEBUG", "False") == "True"
 # Accept a comma-separated list in `ALLOWED_HOSTS`, e.g. "example.com,www.example.com"
 ALLOWED_HOSTS = ['wed-production-841a.up.railway.app','https://wed-production-841a.up.railway.app']#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
 
-CSRF_TRUSTED_ORIGINS = ['wed-production-841a.up.railway.app','https://wed-production-841a.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']
 
 
 # Application definition
