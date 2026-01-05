@@ -159,10 +159,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Basic production security settings
 # แก้ไขใน settings.py
-SECURE_SSL_REDIRECT = False  # ต้องเป็น False สำหรับการรันบนเครื่องตัวเอง (localhost)
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-
+SECURE_SSL_REDIRECT =  True  # ต้องเป็น False สำหรับการรันบนเครื่องตัวเอง (localhost)
+SESSION_COOKIE_SECURE =  True
+CSRF_COOKIE_SECURE =  True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # Default primary key field type
@@ -180,8 +180,8 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = "none"  # ⭐ สำคัญ
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"   # ⭐ สำคัญมาก
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_USERNAME_REQUIRED = True
 
@@ -194,9 +194,10 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "pronanan333@gmail.com"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = "pronanan333@gmail.com"
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
