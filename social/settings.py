@@ -22,10 +22,10 @@ SECRET_KEY = 'django-insecure-0d&@&#$+iplcor#dzu50(oe3d#e$bakyoe@5!ydmteqk%&%w9l
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Use `DJANGO_DEBUG=True` in env to enable debug (not recommended in prod)
-DEBUG = True #os.getenv("DJANGO_DEBUG", "False") == "True"
+DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Accept a comma-separated list in `ALLOWED_HOSTS`, e.g. "example.com,www.example.com"
-ALLOWED_HOSTS = ['wed-production-841a.up.railway.app','https://wed-production-841a.up.railway.app']#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
+ALLOWED_HOSTS = ['wed-production-841a.up.railway.app']#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
 
 CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']
 
@@ -142,7 +142,7 @@ STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'musker/static')]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = Path.joinpath(BASE_DIR, 'musker/static/media')
+
 
 
 
