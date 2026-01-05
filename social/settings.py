@@ -22,12 +22,12 @@ SECRET_KEY = 'django-insecure-0d&@&#$+iplcor#dzu50(oe3d#e$bakyoe@5!ydmteqk%&%w9l
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Use `DJANGO_DEBUG=True` in env to enable debug (not recommended in prod)
-DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+DEBUG = True#os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Accept a comma-separated list in `ALLOWED_HOSTS`, e.g. "example.com,www.example.com"
-ALLOWED_HOSTS = ['wed-production-841a.up.railway.app']#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
+ALLOWED_HOSTS = ['wed-production-841a.up.railway.app']#'wed-production-841a.up.railway.app'#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
 
-CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']#'https://wed-production-841a.up.railway.app'
 
 
 # Application definition
@@ -162,7 +162,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECURE_SSL_REDIRECT =  True  # ต้องเป็น False สำหรับการรันบนเครื่องตัวเอง (localhost)
 SESSION_COOKIE_SECURE =  True
 CSRF_COOKIE_SECURE =  True
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+#SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # Default primary key field type
