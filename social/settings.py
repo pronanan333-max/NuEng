@@ -1,7 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-import dj_database_url
+#import dj_database_url
 
 import cloudinary
 import cloudinary.uploader
@@ -180,8 +180,8 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"   # ⭐ สำคัญ
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "none"  # ⭐ สำคัญ
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_USERNAME_REQUIRED = True
 
