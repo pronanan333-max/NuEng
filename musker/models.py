@@ -106,3 +106,10 @@ class Donation(models.Model):
         return f"{self.amount} THB - {self.status}"
 	
 	
+class DonateSetting(models.Model):
+    title = models.CharField(max_length=100, default="Support Us")
+    qr_image = models.ImageField(upload_to="donate/")
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title

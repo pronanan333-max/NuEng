@@ -27,4 +27,6 @@ admin.site.register(User, UserAdmin)
 # Register Meeps
 admin.site.register(Meep)
 
+# Register Donate Settings
+admin.site.register(DonateSetting)
 
