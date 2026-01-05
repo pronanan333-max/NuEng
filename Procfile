@@ -1,2 +1,2 @@
-wed: gunicorn musker.wsgi --iog-file
-wed: python manage.py migrate && gunicorn musker.wsg
+wed: web: gunicorn social.wsgi:application --bind 0.0.0.0:$PORT
+wed: python manage.py migrate && gunicorn social.wsg
