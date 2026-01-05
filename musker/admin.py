@@ -28,6 +28,3 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Meep)
 
 
-@admin.register(DonateSetting)
-class DonateSettingAdmin(admin.ModelAdmin):
-    list_display = ("title", "is_active")
