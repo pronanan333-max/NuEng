@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-0d&@&#$+iplcor#dzu50(oe3d#e$bakyoe@5!ydmteqk%&%w9l
 DEBUG = True#os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Accept a comma-separated list in `ALLOWED_HOSTS`, e.g. "example.com,www.example.com"
-ALLOWED_HOSTS = ['wed-production-841a.up.railway.app']#'wed-production-841a.up.railway.app'#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
+ALLOWED_HOSTS = ['whale-app-rwlzz.ondigitalocean.app']#'wed-production-841a.up.railway.app'#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
 
-CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']#'https://wed-production-841a.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://whale-app-rwlzz.ondigitalocean.app']#'https://wed-production-841a.up.railway.app'
 
 
 # Application definition
