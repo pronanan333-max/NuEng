@@ -1,7 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-#import dj_database_url
+import dj_database_url
 
 import cloudinary
 import cloudinary.uploader
@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-0d&@&#$+iplcor#dzu50(oe3d#e$bakyoe@5!ydmteqk%&%w9l
 DEBUG = True#os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Accept a comma-separated list in `ALLOWED_HOSTS`, e.g. "example.com,www.example.com"
-ALLOWED_HOSTS = ['wed-production-841a.up.railway.app']#'wed-production-841a.up.railway.app'#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
+ALLOWED_HOSTS = ['whale-app-rwlzz.ondigitalocean.app']#'wed-production-841a.up.railway.app'#[h for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h]
 
-CSRF_TRUSTED_ORIGINS = ['https://wed-production-841a.up.railway.app']#'https://wed-production-841a.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://whale-app-rwlzz.ondigitalocean.app']#'https://wed-production-841a.up.railway.app'
 
 
 # Application definition
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'social.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
@@ -100,7 +100,17 @@ DATABASES = {
         'PORT': '41370',
         
     }
+}'''
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=None,
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
