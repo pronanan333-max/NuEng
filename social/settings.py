@@ -1,7 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-#import dj_database_url
+import dj_database_url
 
 import cloudinary
 import cloudinary.uploader
