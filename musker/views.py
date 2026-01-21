@@ -429,7 +429,7 @@ def trending_list(request):
 
     hashtags = {}
     for meep in meeps:
-        tags = re.findall(r"#(\w+)", meep.body.lower())
+        tags = re.findall(r"#([^\s#]+)", meep.body)
         for tag in tags:
             if tag not in hashtags:
                 hashtags[tag] = calculate_trend_score(tag)
