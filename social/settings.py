@@ -102,7 +102,8 @@ WSGI_APPLICATION = 'social.wsgi.application'
     }
 }'''
 
-<<<<<<< HEAD
+
+
 DATABASES = {
     'default': dj_database_url.config(
         default=None,
@@ -110,9 +111,8 @@ DATABASES = {
         ssl_require=True,
     )
 }
-=======
-DATABASE_URL = os.getenv("DATABASE_URL")
->>>>>>> 98a3848e4229a816d1a80b321a14a2dafba9a11b
+
+
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
