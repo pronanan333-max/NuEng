@@ -1,2 +1,2 @@
-wed: web: gunicorn social.wsgi:application --bind 0.0.0.0:$PORT
+web: gunicorn social.wsgi:application --bind 0.0.0.0:$PORT
 wed: python manage.py migrate && gunicorn social.wsg
