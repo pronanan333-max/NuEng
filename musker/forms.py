@@ -34,22 +34,14 @@ class MeepForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={
-        "class": "form-control",
-        "placeholder": "Email"
-    }))
-
-    class Meta:
-        model = User
-        fields = ("username", "email", "password1", "password2")
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if User.objects.filter(email__iexact=email).exists():
-            raise forms.ValidationError("This email address is already in use.")
-        return email
+	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
 	
-def __init__(self, *args, **kwargs):
+ 
+	class Meta:
+		model = User
+		fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+
+	def __init__(self, *args, **kwargs):
 		super(SignUpForm, self).__init__(*args, **kwargs)
 
 		self.fields['username'].widget.attrs['class'] = 'form-control'
@@ -67,6 +59,10 @@ def __init__(self, *args, **kwargs):
 		self.fields['password2'].label = ''
 		self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
 
+	def clean_email(self):
+		email = self.cleaned_data.get('email')
+		if User.objects.filter(email__iexact=email).exists():
+			raise forms.ValidationError("This email address is already in use.")
+		return email
 
 
-	
