@@ -187,25 +187,31 @@ def follows(request, pk):
 
 
 
+@login_required
 def update_user(request):
-	if request.user.is_authenticated:
-		current_user = User.objects.get(id=request.user.id)
-		profile_user = Profile.objects.get(user__id=request.user.id)
-		# Get Forms
-		user_form = SignUpForm(request.POST or None, request.FILES or None, instance=current_user)
-		profile_form = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
-		if user_form.is_valid() and profile_form.is_valid():
-			user_form.save()
-			profile_form.save()
+    profile_user = request.user.profile
 
-			login(request, current_user)
-			messages.success(request, ("Your Profile Has Been Updated!"))
-			return redirect('home')
+    if request.method == "POST":
+        profile_form = ProfilePicForm(
+            request.POST,
+            request.FILES,
+            instance=profile_user
+        )
 
-		return render(request, "update_user.html", {'user_form':user_form, 'profile_form':profile_form})
-	else:
-		messages.success(request, ("You Must Be Logged In To View That Page..."))
-		return redirect('home')
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, "Profile updated!")
+            return redirect("home")
+        else:
+            print(profile_form.errors)
+
+    else:
+        profile_form = ProfilePicForm(instance=profile_user)
+
+    return render(request, "update_user.html", {
+        "profile_form": profile_form
+    })
+
 	
 def meep_like(request, pk):
 	if request.user.is_authenticated:
